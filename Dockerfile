@@ -4,10 +4,6 @@ MAINTAINER Adam Young
 
 RUN yum -y install httpd mod_wsgi
 RUN sed -i.bak 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
-RUN echo "PidFile /tmp/apache.pid" >> /etc/httpd/conf/httpd.conf
-RUN echo "ErrorLog /dev/stderr" >> /etc/httpd/conf/httpd.conf
-RUN echo "TransferLog /dev/stdout" >> /etc/httpd/conf/httpd.conf
-
 
 
 COPY index.html /var/www/html/
