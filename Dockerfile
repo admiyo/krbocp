@@ -4,6 +4,7 @@ MAINTAINER Adam Young
 
 RUN yum -y install httpd mod_wsgi
 RUN sed -i.bak 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+RUN sed -i.bak 's/    CustomLog/#    CustomLog/' /etc/httpd/conf/httpd.conf
 
 
 COPY index.html /var/www/html/
