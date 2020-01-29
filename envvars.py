@@ -1,10 +1,12 @@
-from os import environ
+import os
 
 def application(environ, start_response):
     status = '200 OK'
     output = b'<html><head><title>Environemnt Variables</title></head><body><dl>'
+    line = '<dt>%s</dt><dd> %s</dd>\n' % ('euid', os.geteuid())
+    output += line.encode('utf-8')
 
-
+    
     keys = environ.keys()
     for key in keys:
         line = '<dt>%s</dt><dd> %s</dd>\n' % (key, repr(environ[key]))
