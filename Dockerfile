@@ -5,6 +5,11 @@ MAINTAINER Adam Young
 RUN yum -y install httpd mod_wsgi
 RUN sed -i.bak 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 RUN echo "PidFile /tmp/apache.pid" >> /etc/httpd/conf/httpd.conf
+RUN echo "ErrorLog /var/log/www/error.log" >> /etc/httpd/conf/httpd.conf
+RUN echo "CustomLog /var/log/www/access.log" >> /etc/httpd/conf/httpd.conf
+
+
+
 COPY index.html /var/www/html/
 COPY envvars.py   /var/www/cgi-bin/envvars.wsgi
 RUN  chmod a+rx   /var/www/cgi-bin/envvars.wsgi
