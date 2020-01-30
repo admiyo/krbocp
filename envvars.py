@@ -2,7 +2,24 @@ import os
 
 def application(environ, start_response):
     status = '200 OK'
-    output = b'<html><head><title>Environemnt Variables</title></head><body><dl>'
+    output = b'<html><head><title>Environment Variables</title></head><body>'
+    path =  '/var/kerberos/krb5/%d/client.keytab' % os.geteuid()
+    line =  "<p>Looking for %s</p>" % path
+    line =  "<p>Looking for %s</p>" % path
+    output += line.encode('utf-8')
+
+    try:
+        f = open(path)
+        line =  "<p>Able to open %s</p>" % path
+        f.close()
+    except FileNotFoundError:
+        line =  "<p>cannot  open %s</p>" % path
+    output += line.encode('utf-8')
+
+
+
+
+    output = output + b'<dl>'
     line = '<dt>%s</dt><dd> %s</dd>\n' % ('euid', os.geteuid())
     output += line.encode('utf-8')
 
