@@ -5,8 +5,8 @@ MAINTAINER Adam Young
 RUN yum -y install httpd mod_wsgi
 RUN sed -i.bak 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 RUN sed -i.bak 's/    CustomLog/#    CustomLog/' /etc/httpd/conf/httpd.conf
-
-
+RUN mkdir  /var/kerberos/krb5/1000540000
+RUN touch /var/kerberos/krb5/1000540000/client.keytab
 COPY index.html /var/www/html/
 COPY envvars.py   /var/www/cgi-bin/envvars.wsgi
 RUN  chmod a+rx   /var/www/cgi-bin/envvars.wsgi
