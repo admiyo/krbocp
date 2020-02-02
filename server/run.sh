@@ -1,1 +1,1 @@
-podman run -P --name krbocp --mount type=bind,source=/home/ayoung/user,destination=/var/kerberos/krb5/user --rm admiyo:krbocp
+podman run -P --name krbocp --mount type=bind,source=/home/ayoung/keytabs/HTTP/localdev.redhatfsi.com@REDHATFSI.COM.keytab,destination=/etc/httpd/localdev.redhatfsi.com@REDHATFSI.COM.keytab --rm admiyo:krbocp
