@@ -17,6 +17,6 @@ COPY envvars.py   /var/www/cgi-bin/envvars.wsgi
 RUN  chmod a+rx   /var/www/cgi-bin/envvars.wsgi
 COPY krbocp.conf /etc/httpd/conf.d/
 COPY krb5.conf /etc/krb5.conf
-CMD /usr/sbin/httpd -D FOREGROUND
+CMD /usr/sbin/apachectl -DFOREGROUND
 
 EXPOSE 8080
