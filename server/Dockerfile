@@ -27,7 +27,7 @@ expose 8080
 # we could have just "ls" on the directory to get the chmod to stick
 RUN rm -rf /run/httpd && mkdir /run/httpd && chmod -R a+rwx /run/httpd
 
-#USER 1001
+USER 1001
 
 
 
